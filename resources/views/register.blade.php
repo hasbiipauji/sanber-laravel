@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Buat Account Baru!</h1>
-    <form action="{{ route('welcome') }}">
+    <form action="{{ route('welcome') }}" method="POST">
+        @csrf
         <label>First Name:</label><br>
         <input type="text" name="first_name"><br>
 

@@ -20,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/welcome', [DashboardController::class, 'welcome'])->name('welcome');
+Route::post('/welcome', [DashboardController::class, 'welcome'])->name('welcome');
