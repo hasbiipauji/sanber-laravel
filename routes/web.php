@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('/main', function () {
+//     return view('layouts.main');
 // });
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/welcome', [DashboardController::class, 'welcome'])->name('welcome');
+
+Route::get('/table', [TableController::class, 'table'])->name('table');
+Route::get('/data-table', [TableController::class, 'dataTable'])->name('data-table');
+
+
