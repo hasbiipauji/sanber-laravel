@@ -56,6 +56,14 @@
               </a>
             </li>
           </ul>
+
+          <li class="nav-item">
+            <a href="{{ route('category') }}" class="nav-link">
+                <i class="nav-icon fas fa-tag"></i>
+                <p>
+                Kategori
+                </p>
+            </a>
         </li>
 
       </ul>
