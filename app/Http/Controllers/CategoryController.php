@@ -20,10 +20,10 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
-        $query = DB::table('categories')->insert([
+        DB::table('categories')->insert([
             "name" => $request['name']
         ]);
-        return redirect()->route('category');
+        return redirect()->route('category')->with('success', 'Kategori Berhasil ditambahkan');
     }
 
     public function show($id){
@@ -48,11 +48,11 @@ class CategoryController extends Controller
             ->where('id', $id)
             ->update(['name' => $request->input('name')]);
             
-        return redirect()->route('category');
+        return redirect()->route('category')->with('success', 'Kategori berhasil diedit');
     }
 
     public function delete($id){
         DB::table('categories')->where('id', '=', $id)->delete();
-        return redirect()->route('category');
+        return redirect()->route('category')->with('success', 'Kategori berhasil dihapus');
     }
 }

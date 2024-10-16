@@ -27,8 +27,8 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-        <a href="../widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+        <a href="{{ route('dashboard') }}" class="nav-link">
+            <i class="nav-icon fas fa-home pr-3"></i>
             <p>
             Dashboard
             </p>
@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-pages"></i>
+            <i class="nav-icon fas fa-list pr-3"></i>
             <p>
               Halaman
               <i class="right fas fa-angle-left"></i>
@@ -45,13 +45,13 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="{{ route('table') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-window-minimize pr-3"></i>
                 <p>Table</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ route('data-table') }}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-window-minimize pr-3"></i>
                 <p>Data Table</p>
               </a>
             </li>
@@ -59,12 +59,30 @@
 
           <li class="nav-item">
             <a href="{{ route('category') }}" class="nav-link">
-                <i class="nav-icon fas fa-tag"></i>
+                <i class="nav-icon fas fa-folder-open pr-3"></i>
                 <p>
                 Kategori
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+          <a href="{{ route('game') }}" class="nav-link">
+              <i class="nav-icon fas fa-gamepad pr-3"></i>
+              <p>
+              Game
+              </p>
+          </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('books.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-book pr-3"></i>
+            <p>
+            Books
+            </p>
+        </a>
+    </li>
 
       </ul>
     </nav>
