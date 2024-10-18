@@ -15,6 +15,16 @@
 
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/template/dist/css/adminlte.min.css') }}">
+
+  {{-- dari laravel ui --}}
+  {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    <!-- Fonts -->
+  {{-- <link rel="dns-prefetch" href="//fonts.bunny.net"> --}}
+  {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+
+  <!-- Scripts -->
+  {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+
   @stack('styles')
   
 </head>
@@ -109,7 +119,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('/template/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/template/dist/js/demo.js') }}"></script>
+{{-- <script src="{{ asset('/template/dist/js/demo.js') }}"></script> --}}
 {{-- sweet alert2 --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\File;
 
 class BookController extends Controller
 {
+    // __construct disini dipakai sebagai auth
+    public function __construct()
+    {   
+        //autentikasi semua function kecuali index dan show
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +67,7 @@ class BookController extends Controller
         $books->category_id = $request->input('category_id');
 
         $books->save();
-        return redirect()->route('books.index')->with('success', 'Buku berhasil ditambahkan');
+        return redirect()->route('books.index')->with('success', 'buku '.$books->title.' berhasil ditambahkan');
 
     }
 
@@ -127,6 +133,6 @@ class BookController extends Controller
         }
     
         $book->delete();
-        return redirect()->route('books.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('books.index')->with('success', 'Buku '.$book->title.' berhasil dihapus');
     }
 }

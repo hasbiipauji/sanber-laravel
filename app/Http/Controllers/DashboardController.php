@@ -8,12 +8,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class DashboardController extends Controller
 {
     public function dashboard(){
-        return view('home'); 
+        return view('dashboard'); 
     }
 
-    public function welcome(Request $request){
-        $data = $request->all();
+    public function welcome(){
 
-        return view('welcome', compact('data'));
+        return view('auth.login');
     }
 }

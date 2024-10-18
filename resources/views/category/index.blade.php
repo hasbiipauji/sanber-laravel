@@ -12,7 +12,10 @@
 @endsection
 
 @section('content')
+@auth
 <a href="{{ route('create-category') }}" class="btn btn-info mb-3">Tambah</a>
+@endauth
+@if ($categories->isNotEmpty())
 <table class="table">
   <thead>
     <tr>
@@ -22,7 +25,7 @@
     </tr>
   </thead>
   <tbody>
-      @forelse ($categories as $category)
+    @foreach ($categories as $category)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
         <td>{{ $category->name }}</td>
@@ -30,16 +33,20 @@
           {{-- <a href="#" class="btn btn-danger btn-sm">Hapus</a> --}}
           <form id="delete-form-{{ $category->id }}" action="{{ route('delete-category', ['id' => $category->id]) }}" method="POST">
               <a href="{{ route('show-category', $category->id) }}" class="btn btn-success btn-sm">Lihat</a>
+              @auth    
               <a href="{{ route('edit-category', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>
               @csrf
               @method('DELETE')
               <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ $category->id }})">Hapus</button>
             </form>
+              @endauth
         </td>
       </tr>
-      @empty
-          <h2>Kategori Kosong</h2>
-      @endforelse
+      @endforeach
     </tbody>
   </table>
+@else
+    <h3>Kategori Kosong</h3>
+@endif
+
 @endsection

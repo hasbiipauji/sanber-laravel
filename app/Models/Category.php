@@ -14,4 +14,10 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    //untuk relasi ke table books
+    public function books()
+    {   
+        return $this->hasMany(Book::class, 'category_id');
+    }
 }

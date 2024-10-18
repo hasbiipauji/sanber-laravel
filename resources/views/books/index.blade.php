@@ -8,7 +8,10 @@
 @endsection
 
 @section('content')
+{{-- auth untuk autentikasi tombol tambah --}}
+@auth
 <a href="{{ route('books.create') }}" class="btn btn-info mb-3">Tambah</a>
+@endauth
 <div class="row">
   @forelse ($books as $item)    
   <div class="col-4">
@@ -22,12 +25,14 @@
             <h5 class="card-title font-weight-bolder">{{ $item->title }}</h5>
             <!-- Str::limit untuk me limit kata yang ditampilkan di dalam card-->
             <p class="card-text">{{ Str::limit($item->summary , '50') }}</p>
-            <p class="card-text">Jumlah Stok : {{ $item->stock }}</p> 
-            {{-- <p>Kategori buku : {{ $category->name }}</p> --}}
+            <p class="card-text">Jumlah Stok : {{ $item->stock }}</p>
+            {{-- $item disini pakai one to many, categories itu nama method di model books --}}
+            <span class="badge badge-success">{{ $item->categories->name }}</span><br>
             {{-- diffForHumans untuk menampilkan waktu terakhir kali data diperbaharui --}}
             <small class="text-muted">Last updated {{ $item->updated_at->diffForHumans() }}</small>
-            {{-- kalau pakai model, tidak perlu menangkap id yg akan dikirm, karena laravel otomatis akan mengetahui id mana yg dikirim --}}
+            {{-- kalau pakai model, tidak perlu menangkap id yg akan dikirim, karena laravel otomatis akan mengetahui id mana yg dikirim --}}
             <a href="{{ route('books.show', $item) }}" class="btn btn-outline-primary btn-block rounded-lg mt-3">Detail</a>
+            @auth       
             <div class="row my-2">
               <div class="col">
                 <a href="{{ route('books.edit', $item) }}" class="btn btn-outline-warning btn-block">Edit</a>
@@ -40,6 +45,7 @@
                 </form>              
               </div>
             </div>
+            @endauth
           </div>
         </div>
       </div>

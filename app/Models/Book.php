@@ -19,4 +19,11 @@ class Book extends Model
         'category_id',
         'updated_at'
     ];
+
+    // ini untuk relasi ke tabel kategori
+    public function categories()
+    {
+        // Category disini adalah model
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

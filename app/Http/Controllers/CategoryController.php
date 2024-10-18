@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['category', 'show']);
+    }
+
     public function category(){
-        $categories = DB::table('categories')->get();
+        // $categories = DB::table('categories')->get();
+        $categories = Category::all();
         return view('category.index', compact('categories'));
     }
 
@@ -23,17 +30,17 @@ class CategoryController extends Controller
         DB::table('categories')->insert([
             "name" => $request['name']
         ]);
-        return redirect()->route('category')->with('success', 'Kategori Berhasil ditambahkan');
+        return redirect()->route('category')->with('success', 'Kategori '. $request['name'] .' Berhasil ditambahkan');
     }
 
     public function show($id){
-        $category = DB::table('categories')->find($id);
+        $category = Category::find($id);
         // dd($category);
         return view('category.show', compact('category'));
     }
 
     public function edit($id){
-        $category = DB::table('categories')->find($id);
+        $category = Category::find($id);
 
         return view('category.edit', compact('category'));
     }
