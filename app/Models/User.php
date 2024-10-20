@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function profiles(){
         return $this->hasOne(Profile::class, 'user_id');
     }
+
+    //diambil dari model borrow dengan field user id
+    public function borrows(){
+        return $this->hasMany(Borrow::class, 'user_id');
+    }
 }

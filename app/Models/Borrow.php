@@ -17,4 +17,15 @@ class Borrow extends Model
         'user_id',
         'book_id'
     ];
+
+    //ambil dari model user dan field user id
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    //ambil dari model book dan dan field book id
+    public function books(){
+        return $this->belongsTo(Book::class, 'book_id');
+    }
+
 }

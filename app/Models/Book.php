@@ -26,4 +26,8 @@ class Book extends Model
         // Category disini adalah model
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function borrows(){
+        return $this->hasMany(Borrow::class, 'book_id');
+    }
 }
