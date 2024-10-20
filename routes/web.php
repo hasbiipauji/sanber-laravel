@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +49,14 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/update-game/{id}', [GameController::class, 'update'])->name('update-game');
     Route::delete('/delete-game/{id}', [GameController::class, 'delete'])->name('delete-game');
     
-    //crud books
+    //pinjam buku
+    Route::post('/borrow/{book_id}', [BorrowController::class, 'create'])->name('create-borrow');
+
+    // ->only('index', 'update'), itu berarti hanya membuat rute untuk metode index dan update
+    Route::resource('profiles', ProfileController::class)->only('index', 'update');
 });
 
+//crud books
 //auth nya hanya bagian create, edit dan delete. untuk show dan index nya tidak sehingga authnya di form nya langsung
 Route::resource('books', BookController::class);
 
@@ -60,6 +67,6 @@ Auth::routes();
 // ini untuk mengahrahkan pada saat pertama kali dibuka
 Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
 
-// tugasnya autentikasi kecuali index dan show
+// tugasnya autentikasi kecuali index dan show, ini keluarkan karena route nya tidak dibuat pakai --resource
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::get('/show-category/{id}', [CategoryController::class, 'show'])->name('show-category');

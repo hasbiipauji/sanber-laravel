@@ -7,10 +7,6 @@
     Ini halaman kategori
 @endsection
 
-@section('sub-judul')
-    table
-@endsection
-
 @section('content')
 @auth
 <a href="{{ route('create-category') }}" class="btn btn-info mb-3">Tambah</a>

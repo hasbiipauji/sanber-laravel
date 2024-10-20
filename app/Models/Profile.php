@@ -16,4 +16,9 @@ class Profile extends Model
         'age',
         'user_id'
     ];
+
+    // relasi dengan tabel users field id
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

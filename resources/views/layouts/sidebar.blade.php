@@ -88,6 +88,16 @@
             </p>
         </a>
     </li>
+    @auth    
+    <li class="nav-item">
+      <a href="{{ route('profiles.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-user pr-3"></i>
+          <p>
+          Profile
+          </p>
+      </a>
+    </li>
+    @endauth
 
       </ul>
     </nav>

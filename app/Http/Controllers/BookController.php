@@ -67,7 +67,7 @@ class BookController extends Controller
         $books->category_id = $request->input('category_id');
 
         $books->save();
-        return redirect()->route('books.index')->with('success', 'buku '.$books->title.' berhasil ditambahkan');
+        return redirect()->route('books.index')->with('success', $books->title.' berhasil ditambahkan');
 
     }
 

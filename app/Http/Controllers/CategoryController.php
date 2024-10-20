@@ -30,7 +30,7 @@ class CategoryController extends Controller
         DB::table('categories')->insert([
             "name" => $request['name']
         ]);
-        return redirect()->route('category')->with('success', 'Kategori '. $request['name'] .' Berhasil ditambahkan');
+        return redirect()->route('category')->with('success', $request['name'] .' Berhasil ditambahkan');
     }
 
     public function show($id){
