@@ -28,7 +28,7 @@
     </div>
   </div>
 @empty
-    
+    <i class="text-muted">belum ada data peminjaman buku</i>
 @endforelse
 <hr>
 

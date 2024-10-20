@@ -66,7 +66,7 @@
             <a href="{{ route('category') }}" class="nav-link">
                 <i class="nav-icon fas fa-folder-open pr-3"></i>
                 <p>
-                Kategori
+                Category
                 </p>
             </a>
         </li>

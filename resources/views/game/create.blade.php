@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Gameplay</label>
-        <textarea name="gameplay" id="" cols="20" rows="5" style="width: 100%;" placeholder="masukan gameplay disini"></textarea>
+        <textarea name="gameplay" class="form-control" cols="20" rows="5" style="width: 100%;" placeholder="masukan gameplay disini"></textarea>
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Developer</label>
